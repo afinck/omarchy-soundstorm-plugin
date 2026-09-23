@@ -23,10 +23,14 @@ BarWidget {
     audioOutput: AudioOutput {}
     onErrorOccurred: function(error, errorString) {
       player.stop()
-      if (root.bar) {
-        root.bar.run("notify-send " + root.bar.shellQuote("Soundstorm Radio") + " " + root.bar.shellQuote(errorString))
-      }
+      notifyError.command = ["notify-send", "Soundstorm Radio", errorString]
+      notifyError.running = true
     }
+  }
+
+  Process {
+    id: notifyError
+    command: ["notify-send", "Soundstorm Radio", ""]
   }
 
   // Best-effort parity with the GNOME extension, which stops playback when
