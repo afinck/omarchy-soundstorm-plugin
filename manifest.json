@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "heavycross.soundstorm-radio",
+  "name": "Soundstorm Radio",
+  "version": "1.0.0",
+  "author": "heavycross",
+  "license": "MIT",
+  "description": "Play Soundstorm Radio directly from the Omarchy bar",
+  "kinds": ["bar-widget"],
+  "entryPoints": { "barWidget": "Widget.qml" },
+  "barWidget": {
+    "displayName": "Soundstorm Radio",
+    "description": "Toggle the Soundstorm Radio stream with a click",
+    "category": "Media",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
