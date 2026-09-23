@@ -5,7 +5,7 @@ import qs.Ui
 
 BarWidget {
   id: root
-  moduleName: "heavycross.soundstorm-radio"
+  moduleName: "afinck.soundstorm-radio"
 
   readonly property bool playing: player.playbackState === MediaPlayer.PlayingState
 

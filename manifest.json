@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "heavycross.soundstorm-radio",
+  "id": "afinck.soundstorm-radio",
   "name": "Soundstorm Radio",
   "version": "1.0.0",
-  "author": "heavycross",
+  "author": "afinck",
   "license": "MIT",
   "description": "Play Soundstorm Radio directly from the Omarchy bar",
   "kinds": ["bar-widget"],
