@@ -34,8 +34,8 @@ BarWidget {
   }
 
   // Best-effort parity with the GNOME extension, which stops playback when
-  // the session locks. There's no first-party lock-state API exposed to
-  // third-party widgets, so poll for the lock-screen process instead.
+  // the session locks. There's no QML-level lock-state binding exposed to
+  // third-party widgets, so poll the shell's own lock IPC instead.
   Timer {
     interval: 3000
     running: root.playing
@@ -45,9 +45,12 @@ BarWidget {
 
   Process {
     id: lockCheck
-    command: ["pgrep", "-x", "hyprlock"]
-    onExited: function(exitCode) {
-      if (exitCode === 0 && root.playing) player.stop()
+    command: ["omarchy-shell", "lock", "isLocked"]
+    stdout: StdioCollector {
+      waitForEnd: true
+      onStreamFinished: {
+        if (text.trim() === "true" && root.playing) player.stop()
+      }
     }
   }
 
