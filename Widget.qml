@@ -57,6 +57,7 @@ BarWidget {
     bar: root.bar
     text: root.playing ? "󰐊" : "󰎇"
     active: root.playing
+    useActiveColor: false
     tooltipText: root.playing ? "Playing Soundstorm Radio — click to stop" : "Click to play Soundstorm Radio"
     onPressed: root.toggle()
   }
