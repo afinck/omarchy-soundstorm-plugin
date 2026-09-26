@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "afinck.soundstorm-radio",
   "name": "Soundstorm Radio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "afinck",
   "license": "MIT",
   "description": "Play Soundstorm Radio directly from the Omarchy bar",

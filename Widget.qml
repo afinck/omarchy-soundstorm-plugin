@@ -8,18 +8,27 @@ BarWidget {
   moduleName: "afinck.soundstorm-radio"
 
   readonly property bool playing: player.playbackState === MediaPlayer.PlayingState
+  readonly property string streamUrl: "https://stream.soundstorm-radio.com:8000"
 
   implicitWidth: button.implicitWidth
   implicitHeight: button.implicitHeight
 
   function toggle() {
-    if (root.playing) player.stop()
-    else player.play()
+    if (root.playing) {
+      player.stop()
+      return
+    }
+    // Reload the source on every play. A connection opened at startup can
+    // fail or go stale before the first click, and play() alone won't
+    // recover it.
+    player.source = ""
+    player.source = root.streamUrl
+    player.play()
   }
 
   MediaPlayer {
     id: player
-    source: "https://stream.soundstorm-radio.com:8000"
+    source: root.streamUrl
     audioOutput: AudioOutput {}
     onErrorOccurred: function(error, errorString) {
       player.stop()
