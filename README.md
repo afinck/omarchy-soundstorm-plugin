@@ -21,6 +21,23 @@ omarchy plugin add https://github.com/afinck/omarchy-soundstorm-plugin.git --ena
 Or clone manually into `~/.config/omarchy/plugins/afinck.soundstorm-radio/`
 and enable it with `omarchy plugin enable afinck.soundstorm-radio`.
 
+## Troubleshooting
+
+If clicking the icon doesn't start playback:
+
+1. Update the installed plugin and reload it:
+
+   ```bash
+   git -C ~/.config/omarchy/plugins/afinck.soundstorm-radio pull
+   omarchy plugin disable afinck.soundstorm-radio
+   omarchy plugin enable afinck.soundstorm-radio
+   ```
+
+2. Check that the stream is reachable:
+   `curl -sI https://stream.soundstorm-radio.com:8000 | head -n 1`
+   should print `HTTP/1.0 200 OK`.
+3. Check that audio works in general, e.g. with `wpctl status`.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
