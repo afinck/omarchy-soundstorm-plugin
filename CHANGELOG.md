@@ -8,11 +8,9 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
-- Playback no longer hangs when the widget has been loaded for a while
-  before the first click (for example after a reboot). The widget used to
-  open the stream connection once at startup and reuse it; if that
-  connection failed or went stale, clicking play did nothing until the
-  plugin was reloaded. Every click on play now opens a fresh connection.
+- Playback could stay stuck (e.g. after an unplanned reboot) until the
+  plugin was reloaded. Every click on play now opens a fresh stream
+  connection.
 
 ## [1.0.0] - 2026-09-23
 

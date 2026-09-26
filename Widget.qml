@@ -18,9 +18,8 @@ BarWidget {
       player.stop()
       return
     }
-    // Reload the source on every play. A connection opened at startup can
-    // fail or go stale before the first click, and play() alone won't
-    // recover it.
+    // Reload the source on every play. The player can get stuck (seen after
+    // an unplanned reboot), and play() alone won't recover it.
     player.source = ""
     player.source = root.streamUrl
     player.play()
