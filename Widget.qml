@@ -18,9 +18,9 @@ BarWidget {
       player.stop()
       return
     }
-    // Reload the source on every play. If the first load failed (e.g. the
-    // network wasn't up yet after boot), MediaPlayer stays in an error state
-    // and play() alone won't retry.
+    // Reload the source on every play. A connection opened at startup can
+    // fail or go stale before the first click, and play() alone won't
+    // recover it.
     player.source = ""
     player.source = root.streamUrl
     player.play()
